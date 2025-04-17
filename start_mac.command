@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# ─── Make the script run from its own directory ───────────────────────────────
+# this ensures all relative paths (like "media/") resolve next to the .command
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
+
 # ─── 1️⃣ Ensure Homebrew is installed ─────────────────────────────────────────
 if ! command -v brew &> /dev/null; then
   cat <<EOF
